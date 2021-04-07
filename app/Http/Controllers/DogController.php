@@ -10,6 +10,9 @@ class DogController extends Controller
 {
     public function list()
     {
-        return Http::get('https://dog.ceo/api/breeds/list/all')->body();
+        $data = file_get_contents('https://dog.ceo/api/breeds/list/all');
+        $json = json_decode($data);
+        $breeds = $json->message;
+        return view('dogs', compact('breeds'));
     }
 }
