@@ -14,5 +14,6 @@ class DogController extends Controller
         $array_breeds = json_decode($data);
         $breeds = $array_breeds->message;
         return view('dogs', compact('breeds'));
+        
     }
 }
